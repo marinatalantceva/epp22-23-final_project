@@ -1,0 +1,48 @@
+---
+name: final_project
+channels:
+  - conda-forge
+  - plotly
+  - r
+  - nodefaults
+
+dependencies:
+  - python=3.11
+  - pip >=21.1
+  - setuptools_scm
+  - toml
+
+  # Reproducibility
+  - conda-lock
+
+  # Package dependencies
+  - pytask>=0.2
+  - pytask-parallel>=0.2
+  - pytask-latex>=0.2
+  - pytask-r>=0.2
+
+  # Misc
+  - black
+  - pre-commit
+  - pytest
+  - pytest-cov
+  - pytest-xdist
+  - pdbpp
+  - ipykernel
+  - jupyterlab
+  - pyyaml
+  - plotly>=5.5.0
+  - pandas
+  - statsmodels
+  - python-graphviz
+  - python-kaleido
+  - r-plyr
+  - r-reshape2
+  - r-xtable
+  - r-plotly
+  - r-reticulate
+  - r-webshot
+  - phantomjs
+
+  - pip:
+      - -e .  # installs the project
