@@ -1,4 +1,3 @@
-from final_project.data_management.clean_data import clean_data
+from final_project.data_management.test_url.r import url_with_coordinates
 
-
-__all__ = [clean_data]
+__all__ = [url_with_coordinates]
