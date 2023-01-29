@@ -117,7 +117,6 @@ api_data_with_time <- as.data.frame(api_data_with_time)
 write.csv(api_data_with_time, file = produces[["time_data"]], row.names = FALSE)
 
 # Save all given Hexagons and Calendar Weeks
-# all_sorted = data_sorting(api_data_with_time)
 all.hex <- unique_hexagons(api_data_with_time)
 all.CW <- unique_calendar_weeks(api_data_with_time)
 all.CWY <- week_year(api_data_with_time)
