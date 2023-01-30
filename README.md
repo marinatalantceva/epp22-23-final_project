@@ -27,7 +27,7 @@ This project was created with [cookiecutter](https://github.com/audreyr/cookiecu
 and the
 econ-project-templates](https://github.com/OpenSourceEconomics/econ-project-templates).
 
-## The Purpose of this Project
+## Project Purpose
 
 ### The Helium Network
 
