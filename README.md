@@ -40,6 +40,9 @@ The *Helium Network* is a decentralized, blockchain-based project with the goal 
 
 One of the advantages of having a network running on a blockchain is the decentralized verification of the correctness of data by all network participants. We collect data for every hotspot in a region by scraping the *Helium* blockchain for hotspot data using the *Helium Blockchain API*. We focus on the adoption of hotspots in New York City, USA.
 
+
+Additional information on how to use the *Helium Blockchain API* can be found in the [Helium Documentation](https://docs.helium.com/api/blockchain/hotspots).
+
 ### References
 
 - Bass, F. M. (1969). A new product growth for model consumer durables. *Management Science*, 15(5), 215–227.
