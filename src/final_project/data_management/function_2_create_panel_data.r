@@ -1,6 +1,6 @@
 #Creating a panel dataset to use for predictions in later work
 
-#This code takes a couple of minutes to run, since some dataframes are quite large.
+#This code takes about 3 minutes to run, since some dataframes are quite large.
 
 # ======================================================================================
 # Functions
@@ -131,7 +131,6 @@ collecting_neighbours_cumulative = function(results.neigh){
 }
 
 
-#from line 311
 
 # ======================================================================================
 # Get produces and depends_on from pytask

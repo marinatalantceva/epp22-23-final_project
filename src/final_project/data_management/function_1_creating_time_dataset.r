@@ -113,7 +113,6 @@ api_data <- read.csv(depends_on[["api_data"]]) # import the data set from the "h
 api_data_format <- data_format(api_data)
 api_data_with_time <- add_time_variables(api_data_format)
 api_data_with_time <- as.data.frame(api_data_with_time)
-# api_data_with_time <- apply(api_data_with_time, 2, as.character)
 write.csv(api_data_with_time, file = produces[["time_data"]], row.names = FALSE)
 
 # Save all given Hexagons and Calendar Weeks
@@ -123,7 +122,6 @@ all.CWY <- week_year(api_data_with_time)
 all.YEAR <- year_data(all.CWY)
 all.CWY <- week_year_data(all.CWY)
 
-# all_sorted <- apply(all_sorted, 2, as.character)
 all.hex <- lapply(all.hex, as.character)
 all.hex <- transpose(as.data.frame(all.hex))
 all.CW <- lapply(all.CW, as.character)
@@ -134,7 +132,6 @@ all.YEAR <- lapply(all.YEAR, as.character)
 all.YEAR <- transpose(as.data.frame(all.YEAR))
 
 
-# write.csv(all_sorted, file = produces[["all_sorted"]], row.names = FALSE)
 write.csv(all.hex, file = produces[["all_hex"]], row.names = FALSE)
 write.csv(all.CW, file = produces[["all_CW"]], row.names = FALSE)
 write.csv(all.CWY, file = produces[["all_CWY"]], row.names = FALSE)
