@@ -1,0 +1,177 @@
+\documentclass{article}
+
+% Language setting
+% Replace `english' with e.g. `spanish' to change the document language
+\usepackage[english]{babel}
+
+% Set page size and margins
+% Replace `a4paper' with `letterpaper' for US standard size
+\usepackage[a4paper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{natbib} %bibliography
+\usepackage{tabularx} %tables
+\usepackage{longtable} %also tables
+\usepackage{caption} % Changing caption font in tables and figures
+\usepackage{enumerate} %for enumeration
+\usepackage{array} %to create modifications to the tables
+\usepackage{float} %figures and captions
+\usepackage{mathtools}
+\usepackage{subcaption} %  for subfigures environments 
+
+
+\title{Predicting the Adoption Curve of a New Technology Using Helium Hotpots as a Case Study.}
+\author{Ciupitu, Octavian; Talantceva, Marina}
+
+%------------------------------------------------
+% document starts here
+%------------------------------------------------
+\begin{document}
+
+\date{\today}
+\maketitle
+
+\begin{center}
+    Predicting the adoption curve of Helium Hotspotsusing the Bass Model (Bass, 1969).
+\end{center}
+  
+
+\section{The Bass Model}
+
+The \emph{Bass Model} was originated by Frank Bass in 1969 and is used to predict new product diffusion patterns. In his first paper
+in 1969, Bass built on the findings of Rodgers (1963) on the \emph{Diffusion of Innovations} and introduced what he called a
+\emph{new product growth model for consumer durables}. Later, this model proved to be applicable to more products than just consumer
+durables, and eventually became worldwide known as the \emph{Bass Model}. The model is used to explain the interaction between current
+and potential adopters of a new product. It states that there are two types of adopters - the innovators and the imitators. The speed
+and timing of adoption depends on their degree of innovation and the degree of imitation among adopters. Accoding to Bass, these are the
+two main kinds of forced determining the diffusion pattern.
+
+\medskip
+
+\noindent There are three key parameters in the Bass Model - usually called $p$, $q$, and $m$:
+
+\begin{enumerate}
+    \item $p$ is called the \emph{coefficient of innovation} and represents the rate or probability that an innovator will adopt at time t. 
+    \item $q$ is called the \emph{coefficient of imitation} and accounts for the “word of mouth” or “social contagion” effects.
+    \item $m$ indicates the market size and provides the scale of the demand forecast. Unlike the other two parameters $p$ and $q$,
+    $m$ does not determine the shape of the adoption curve. 
+\end{enumerate}
+
+\noindent The two parameters $p$, and $q$ specify how fast or slow the adoption of a new product is expected to proceed. To sum up, the adoption of a
+new product can proceed either by small scale or a large scale (specified by $m$) or at a fast or slow pace (specified by $p$ and $q$). 
+Figure 1 shows different estimated curves with various levels of innovation ($p$) and imitation ($q$). Characteristic of these diffusion curves is
+their S-shape, which illustrates that the adoption rate of a new product is particularly low at the beginning, when no contagion effects can yet exist,
+and at the end, when market saturation has been reached. 
+
+\begin{figure}[hptb]
+    \centering{}\includegraphics[scale=0.45]{plots/bass_model_example.png}\\
+    \caption{Based on Number Analytics (2021).}
+\end{figure}
+
+\noindent We derive the estimation function from the Bass equation below:
+
+\begin{equation} \label{eq1}
+    \begin{split}
+        \frac{f(t)}{m - F(t)} = p + q * \frac{F(t)}{m}\\
+    \end{split}
+\end{equation}
+
+\noindent Where $F(t)$ is the installed base fraction, i.e. the number of current cumulative adoptions; $f(t)$ is the change of the installed base
+fraction, i.e. the number of new adoptions in a specific timeframe; $p$ is the coefficient of innovation; and $q$ is the coefficient of imitation.
+In order to estimate those parameters, an estimation funciton needs to be derived. Using some simple algebra we get:
+
+\begin{equation} \label{eq2}
+    \begin{split}
+    f(t) & = \left[ p + \frac{q * F(t)}{m} \right] * (m - F(t)) \\
+    \end{split}
+\end{equation}
+
+\begin{equation} \label{eq3}
+    \begin{split}
+    f(t) & = a + b * N(t) + c * \left[ N(t) \right]^2
+    \end{split}
+\end{equation}
+
+\noindent Where we can derive that:
+
+\begin{equation}
+    \begin{aligned}
+    a & = p*m \\[2pt]
+    b & = q - p \\[2pt]
+    c & = - \frac{q}{m} \\[15pt]
+    m & = \frac{-b \pm \sqrt{b^2 -4ac}}{2c} \\
+    p & = \frac{a}{m} \\[2pt]
+    q & = -m*c
+    \end{aligned}
+\end{equation}
+
+\bigskip
+
+\noindent Using the estimation function from \emph{Equation 3}, a linear regression can be performed. The resulting parameters $a$, $b$ and $c$ can be
+then used to calculate the coefficient of innovation $p$, the coefficient of imitation $q$ and the market size $m$ by applying the formulas from \emph{Equation 4}.
+
+\clearpage
+\section{Data Analysis and Results}
+
+As a first step, we collect all hostpot adoptions from the Helium blockchain for New York City, US. We consider New York as an interesting study
+environment since it is a comparatively fast adopting city. The installation date of a hotspot is stored in the blockchain by a daily frequency. However, to
+avoid many zero entries in our dataset, especially at the beginning of the hotspot diffusion process, we decided to transform our dataset to a weekly frequency.
+This allows us to observe the evolution of adoptions from week to week, as can be seen in Figure 2 (weekly adoptions) and Figure 3 (weekly cumulative adoptions).
+
+\begin{figure}[!hptb]
+    \begin{subfigure}[h]{0.52\linewidth}
+    \includegraphics[width=\linewidth]{plots/weekly_hotspot_adoptions.png}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[h]{0.52\linewidth}
+    \includegraphics[width=\linewidth]{plots/weekly_hotspot_adoptions_cumulative.png}
+    \end{subfigure}%
+    \caption{Number of weekly new adoptions (left) and weekly cumulative hotspot adoptions (right).}
+    \end{figure}
+
+
+\noindent Especially in Figure 2 (right), it can be clearly seen that the number of adoptions is still increasing rapidly and saturation has not been reached yet.
+So it is very interesting to fit the Bass Model based on this data set to predict the next period. We examine the period from August 10, 2020 to November 7, 2021,
+which corresponds to an observation period of 65 weeks. We then use the estimated Bass Model based on this period to predict the evolution of adoption numbers until
+the end of 2022, more precisely until December 26, 2022.
+
+\bigskip
+
+\noindent The estimates of our analysis give us a coefficient of innovation $p$ of $0.00066$, a coefficient of imitation $q$ of $0.055$, and a market size $m$ of $9754$. If we
+plot our fitted curve against actual weekly (new) hotspot adoptions as in Figure 3, we can see that the curve describes reality well.
+
+\begin{figure}[!hptb]
+    \centering{}\includegraphics[scale=0.6]{plots/bass_model_adoptions_vs_actual_adoptions.png}\\
+    \caption{Fitted Bass Model (blue) vs. Actual Hotspots Adoptions (orange).}
+\end{figure}
+
+\noindent Figure 4 again shows, similar to Figure 3, our fitted curve, but this time against the weekly cumulative hotspot adoptions. Additionally, we inclueded the prediction
+of our Bass Model until the end of 2022. It can be seen that, according to our prediction, the saturation will be reached at the beginning of 2023 at around $9700$ adoptions,
+just as our estimated parameter $m$ suggested.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+\begin{figure}[!hptb]
+    \centering{}\includegraphics[scale=0.6]{plots/cumulative_bass_model_adoptions_vs_actual_cumulative_adoptions.png}\\
+    \caption{Bass Model Estimation until the End of 2022 (blue) vs. Acutal Adoption until November 2021 (orange).}
+\end{figure}
+
+\noindent In a final step, we compare the Bass Model prediction with the real hotspots adoptions until December 2022. The result can be seen in Figure 5. It can be seen, that our
+prediction is clearly too optimisitc and that the actual market saturation is reached at around $6000$ hotspots.
+
+\begin{figure}[!hptb]
+    \centering{}\includegraphics[scale=0.6]{plots/predicted_cumulative_weekly_hotspot_adoptions.png}\\
+    \caption{Bass Model Estimation until the End of 2022 (blue) vs. Acutal Adoption until the End of 2022 (orange + green).}
+\end{figure}
+
+%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ 
+\end{document}
