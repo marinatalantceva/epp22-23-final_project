@@ -23,10 +23,13 @@ adoptions_test = adoptions_cumulative[64:125]
 
 # We compute the first difference of the cumulative sales to explore the amount of new adoptions per week.
 new_adoptions = adoptions_train.HotspotsWeek.diff().iloc[1:]
+
+plt.rcParams['font.size'] = 14
+
 plt.figure().set_figwidth(10)
 plt.plot(adoptions_train.Date.iloc[1:], new_adoptions)
-plt.title("Weekly Hotspot Adoptions")
-plt.xlabel("Date")
+#plt.title("Weekly Hotspot Adoptions")
+#plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
 plt.savefig('plots/weekly_hotspot_adoptions')
 plt.clf()
@@ -34,8 +37,8 @@ plt.clf()
 # We also plot the chart with the amount of cumulative adoptions every week,
 plt.figure().set_figwidth(10)
 plt.plot(adoptions_train.Date, adoptions_train.HotspotsWeek)
-plt.title("Weekly Hotspot Adoptions (Cumulative)")
-plt.xlabel("Date")
+#plt.title("Weekly Hotspot Adoptions (Cumulative)")
+#plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
 plt.savefig('plots/weekly_hotspot_adoptions_cumulative')
 plt.clf()
@@ -92,8 +95,8 @@ adoptions = bass_model(p,q,m,len(adoptions_train))
 plt.figure().set_figwidth(10)
 plt.plot(adoptions_train.Date, adoptions)
 plt.plot(adoptions_train.Date.iloc[1:], new_adoptions)
-plt.title("Bass Model Adoptions vs Actual Adoptions")
-plt.xlabel("Date")
+#plt.title("Bass Model Adoptions vs Actual Adoptions")
+#plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
 plt.savefig('plots/bass_model_adoptions_vs_actual_adoptions')
 plt.clf()
@@ -112,9 +115,10 @@ plt.plot(adoptions_cumulative.Date, adoptions_pred_cumul)
 # Also plot the adoption_train dataset:
 plt.plot(adoptions_train.Date, adoptions_train.HotspotsWeek)
 
-plt.title("Cumulative Bass Model Adoptions vs Actual Cumulative Adoptions")
-plt.xlabel("Date")
+#plt.title("Cumulative Bass Model Adoptions vs Actual Cumulative Adoptions")
+#plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
+plt.xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
 plt.savefig('plots/cumulative_bass_model_adoptions_vs_actual_cumulative_adoptions')
 
 plt.clf()
@@ -126,9 +130,10 @@ plt.plot(adoptions_cumulative.Date, adoptions_pred_cumul)
 plt.plot(adoptions_train.Date, adoptions_train.HotspotsWeek)
 plt.plot(adoptions_test.Date, adoptions_test.HotspotsWeek)
 
-plt.title("Predicted Cumulative Weekly Hotspot Adoptions")
-plt.xlabel("Date")
+#plt.title("Predicted Cumulative Weekly Hotspot Adoptions")
+#plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
+plt.xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
 plt.savefig('plots/predicted_cumulative_weekly_hotspot_adoptions')
 
 plt.clf()
