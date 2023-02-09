@@ -9,6 +9,15 @@ Final Project for the EPP class
 
 ## Usage
 
+The following steps must be followed chronologically to understand the purpose as well as the outcome of this project:
+
+1. Read the following chapter **Project Purpose** to get an intuition what the *Helium Network* is about. We briefly describe what a *Helium* hotspot is and what makes people adopt it. We additionally explain where we get our data from.
+2. Run pytask (as explained below).
+3. Read the resulting pdf-document. It will provide a description of the prediction model we used in our analysis, as well as a clear data exploration. Additionally, we are using this pdf-document to present and discuss our results (using graphs). Finally, we talk about limitations of our work and give suggestions for future research. 
+
+
+### pytask information
+
 To get started, create and activate the environment with
 
 ```console
@@ -21,11 +30,6 @@ Now you can build the project using
 $ pytask
 ```
 
-## Credits
-
-This project was created with [cookiecutter](https://github.com/audreyr/cookiecutter)
-and the
-econ-project-templates](https://github.com/OpenSourceEconomics/econ-project-templates).
 
 ## Project Purpose
 
@@ -47,3 +51,9 @@ Additional information on how to use the *Helium Blockchain API* can be found in
 
 - Bass, F. M. (1969). A new product growth for model consumer durables. *Management Science*, 15(5), 215–227.
 - Jagtap, D., Yen, A., Wu, H., Schulman, A., & Pannuto, P. (2021). Federated infrastructure: Usage, patterns, and insights from" the people’s network". *Proceedings of the 21st ACM Internet Measurement Conference*, 22–36.
+
+## Credits
+
+This project was created with [cookiecutter](https://github.com/audreyr/cookiecutter)
+and the
+econ-project-templates](https://github.com/OpenSourceEconomics/econ-project-templates).
