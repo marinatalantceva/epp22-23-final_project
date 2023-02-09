@@ -9,7 +9,7 @@ Final Project for the EPP class
 
 ## Usage
 
-The following steps must be followed chronologically to understand the purpose as well as the outcome of this project:
+The following steps must be followed chronologically to understand the purpose as well as the results of this project:
 
 1. Read the following chapter **Project Purpose** to get an intuition what the *Helium Network* is about. We briefly describe what a *Helium* hotspot is and what makes people adopt it. We additionally explain where we get our data from.
 2. Run pytask (as explained below).
