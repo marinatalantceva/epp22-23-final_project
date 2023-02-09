@@ -16,7 +16,7 @@ The following steps must be followed chronologically to understand the purpose a
 3. Read the resulting pdf-document. It will provide a description of the prediction model we used in our analysis, as well as a clear data exploration. Additionally, we are using this pdf-document to present and discuss our results (using graphs). Finally, we talk about limitations of our work and give suggestions for future research. 
 
 
-### pytask information
+### Pytask Information
 
 To get started, create and activate the environment with
 
