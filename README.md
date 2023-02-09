@@ -45,7 +45,7 @@ The *Helium Network* is a decentralized, blockchain-based project with the goal 
 One of the advantages of having a network running on a blockchain is the decentralized verification of the correctness of data by all network participants. Accordingly, all data are publicly available. We collect data for every hotspot in a region by scraping the *Helium* blockchain for hotspot data using the *Helium Blockchain API*. We focus on the adoption of hotspots in New York City, USA.
 
 
-Additional information on how to use the *Helium Blockchain API* can be found in the [Helium Documentation](https://docs.helium.com/api/blockchain/hotspots).
+Additional information on how to use the *Helium Blockchain API* can be found in the [Helium Documentation](https://docs.helium.com/api/blockchain/hotspots). General information about the *Helium* project can be found on the [Official Website](https://www.helium.com/). How many hotspots already exist in a specific region, e.g. in New York City, can be looked up using the [Helium Explorer](https://explorer.helium.com/).
 
 ### References
 
