@@ -1,4 +1,5 @@
-Final Project for the EPP class: Predicting the Adoption Curve of a New Technology Using Helium Hotpots as a Case Study.
+Final Project for the EPP class:
+Predicting the Adoption Curve of a New Technology Using Helium Hotpots as a Case Study.
 ===============================
 
 [![image](https://img.shields.io/github/workflow/status/marinatalantceva/final_project/main/main)](https://github.com/marinatalantceva/final_project/actions?query=branch%3Amain)
