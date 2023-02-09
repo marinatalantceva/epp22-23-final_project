@@ -27,7 +27,7 @@
 \author{Ciupitu, Octavian; Talantceva, Marina}
 
 %------------------------------------------------
-% document starts here
+% Document Starts Here
 %------------------------------------------------
 \begin{document}
 
@@ -35,19 +35,22 @@
 \maketitle
 
 \begin{center}
-    Predicting the adoption curve of Helium Hotspotsusing the Bass Model (Bass, 1969).
+    Predicting the adoption curve of Helium Hotspotsusing the Bass Model \citep{bass1969new}.
 \end{center}
   
+%------------------------------------------------
+% CHAPTER 1
+%------------------------------------------------
 
 \section{The Bass Model}
 
 The \emph{Bass Model} was originated by Frank Bass in 1969 and is used to predict new product diffusion patterns. In his first paper
-in 1969, Bass built on the findings of Rodgers (1963) on the \emph{Diffusion of Innovations} and introduced what he called a
-\emph{new product growth model for consumer durables}. Later, this model proved to be applicable to more products than just consumer
-durables, and eventually became worldwide known as the \emph{Bass Model}. The model is used to explain the interaction between current
-and potential adopters of a new product. It states that there are two types of adopters - the innovators and the imitators. The speed
-and timing of adoption depends on their degree of innovation and the degree of imitation among adopters. Accoding to Bass, these are the
-two main kinds of forced determining the diffusion pattern.
+in 1969, Bass built on the findings of \cite{rogers2014diffusion} on the \emph{Diffusion of Innovations}, which were first pubished in 1963,
+and introduced what he called a \emph{new product growth model for consumer durables}. Later, this model proved to be applicable to more
+products than just consumer durables, and eventually became worldwide known as the \emph{Bass Model}. The model is used to explain the
+interaction between current and potential adopters of a new product. It states that there are two types of adopters - \emph{innovators} and
+\emph{imitators}. This means, the speed and timing of adoption depends on the degree of innovation and the degree of imitation among adopters.
+Accoding to Bass, these are the two main kinds of forces determining the diffusion pattern.
 
 \medskip
 
@@ -60,16 +63,26 @@ two main kinds of forced determining the diffusion pattern.
     $m$ does not determine the shape of the adoption curve. 
 \end{enumerate}
 
-\noindent The two parameters $p$, and $q$ specify how fast or slow the adoption of a new product is expected to proceed. To sum up, the adoption of a
-new product can proceed either by small scale or a large scale (specified by $m$) or at a fast or slow pace (specified by $p$ and $q$). 
-Figure 1 shows different estimated curves with various levels of innovation ($p$) and imitation ($q$). Characteristic of these diffusion curves is
-their S-shape, which illustrates that the adoption rate of a new product is particularly low at the beginning, when no contagion effects can yet exist,
-and at the end, when market saturation has been reached. 
-
 \begin{figure}[hptb]
     \centering{}\includegraphics[scale=0.45]{plots/bass_model_example.png}\\
     \caption{Based on Number Analytics (2021).}
 \end{figure}
+
+\noindent At the beginning of a product diffusion process, the \emph{coefficient of innovation} is particularly important, as it represents the set of
+people who are the first to adopt the new product regardless of the actions of others - in other words, they are \emph{innovators}. Later in the diffusion
+process, the \emph{coefficient of imitation} becomes more and more important. It stands for the set of people who adopt due to the fact that they see
+products on other people. The \emph{coefficient of imitation} represents the contagion effect in a population and describes the influence of the \emph{imitators}.
+
+\medskip
+
+\noindent The two parameters $p$, and $q$ specify how fast or slow the adoption of a new product is expected to proceed. To sum up, the adoption of a
+new product can proceed either by small scale or a large scale (specified by $m$) or at a fast or slow pace (specified by $p$ and $q$). 
+Figure 1 shows different estimated curves with various levels of innovation ($p$) and imitation ($q$). The level of $p$ determines the adoption rate at
+the beginning of the diffusion process, whereas the level of $q$ determines the adoption rate at the time where many adoptions have already taken place.
+Characteristic of these diffusion curves is their S-shape, which illustrates that the adoption rate of a new product is particularly low at the beginning,
+when no contagion effects can yet exist, and at the end, when market saturation has been reached. 
+
+\medskip
 
 \noindent We derive the estimation function from the Bass equation below:
 
@@ -114,12 +127,18 @@ In order to estimate those parameters, an estimation funciton needs to be derive
 then used to calculate the coefficient of innovation $p$, the coefficient of imitation $q$ and the market size $m$ by applying the formulas from \emph{Equation 4}.
 
 \clearpage
+
+%------------------------------------------------
+% CHAPTER 2
+%------------------------------------------------
+
 \section{Data Analysis and Results}
 
 As a first step, we collect all hostpot adoptions from the Helium blockchain for New York City, US. We consider New York as an interesting study
 environment since it is a comparatively fast adopting city. The installation date of a hotspot is stored in the blockchain by a daily frequency. However, to
 avoid many zero entries in our dataset, especially at the beginning of the hotspot diffusion process, we decided to transform our dataset to a weekly frequency.
-This allows us to observe the evolution of adoptions from week to week, as can be seen in Figure 2 (weekly adoptions) and Figure 3 (weekly cumulative adoptions).
+This allows us to observe the evolution of adoptions from week to week, as can be seen in the left chart of Figure 2 (weekly adoptions) as well as on the right
+one (weekly cumulative adoptions).
 
 \begin{figure}[!hptb]
     \begin{subfigure}[h]{0.52\linewidth}
@@ -141,15 +160,15 @@ the end of 2022, more precisely until December 26, 2022.
 \bigskip
 
 \noindent The estimates of our analysis give us a coefficient of innovation $p$ of $0.00066$, a coefficient of imitation $q$ of $0.055$, and a market size $m$ of $9754$. If we
-plot our fitted curve against actual weekly (new) hotspot adoptions as in Figure 3, we can see that the curve describes reality well.
+plot our fitted curve against actual weekly (new) hotspot adoptions as in Figure 3, we can see that the fitted curve describes reality well.
 
 \begin{figure}[!hptb]
     \centering{}\includegraphics[scale=0.6]{plots/bass_model_adoptions_vs_actual_adoptions.png}\\
-    \caption{Fitted Bass Model (blue) vs. Actual Hotspots Adoptions (orange).}
+    \caption{Fitted Bass Model (blue) vs. Actual Hotspots Adoptions from the Training Dataset (orange).}
 \end{figure}
 
 \noindent Figure 4 again shows, similar to Figure 3, our fitted curve, but this time against the weekly cumulative hotspot adoptions. Additionally, we inclueded the prediction
-of our Bass Model until the end of 2022. It can be seen that, according to our prediction, the saturation will be reached at the beginning of 2023 at around $9700$ adoptions,
+of our Bass Model until the end of 2022. It can be seen that, according to our prediction, the saturation will be reached at the beginning of 2023 at around $9,700$ adoptions,
 just as our estimated parameter $m$ suggested.
 
 \bigskip
@@ -159,7 +178,7 @@ just as our estimated parameter $m$ suggested.
 
 \begin{figure}[!hptb]
     \centering{}\includegraphics[scale=0.6]{plots/cumulative_bass_model_adoptions_vs_actual_cumulative_adoptions.png}\\
-    \caption{Bass Model Estimation until the End of 2022 (blue) vs. Acutal Adoption until November 2021 (orange).}
+    \caption{Bass Model Estimation until the End of 2022 (blue) vs. Actual Adoption until November 2021 (orange).}
 \end{figure}
 
 \noindent In a final step, we compare the Bass Model prediction with the real hotspots adoptions until December 2022. The result can be seen in Figure 5. It can be seen, that our
@@ -167,11 +186,50 @@ prediction is clearly too optimisitc and that the actual market saturation is re
 
 \begin{figure}[!hptb]
     \centering{}\includegraphics[scale=0.6]{plots/predicted_cumulative_weekly_hotspot_adoptions.png}\\
-    \caption{Bass Model Estimation until the End of 2022 (blue) vs. Acutal Adoption until the End of 2022 (orange + green).}
+    \caption{Bass Model Estimation until the End of 2022 (blue) vs. Actual Adoption until the End of 2022 (orange + green).}
 \end{figure}
 
-%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%
+%------------------------------------------------
+% CHAPTER 3
+%------------------------------------------------
 
+\section{Discussion and Limitations}
+
+Our analysis clearly shows that our prediction is too optimistic when compared to the test data set. The market size estimated by the Bass Model is $m = 9,754$, whereas
+from the real data we can see that the hotspot adoptions tend to converge towards a market size of $6000$. However, a closer look at the model quickly reveals where
+this discrepancy comes from. The Bass model, which is now over 50 years old, is one of the first models to describe the diffusion process of a new product, and is
+therefore still very simply designed. Namely, it describes the dependent variable only on the basis of its own lags i.e. the so-called "installed base". For a more
+complex technology, like in our case a Helium hotspot, estimating future adoptions solely based on past adoptions does not seem to be sufficient for a good fit.
+The reason for this is that a potential consumer's adoption decision depends on additional important market variables. Probably the most important market variable
+is the performance of the cryptocurrency market, or to be more precise, the so-called Helium Token (\$HNT), which rewards consumers for setting up and operating a
+hotspot. If the price of \$HNT, which can be traded for traditional currencies such as dollars or euros on crypto exchanges, is high, then consumers'
+incentives to adopt also increase. 
+
+\bigskip
+
+\noindent However, if we look at the past performance of the cryptocurrency market, we see that for the period of our training data set (August 10, 2020 to November 7, 2021) all
+cryptocurrencies massively increase in value. Not only did the price of the Helium Token reach its peak at around \$52 in November 2021, but also the price of other major
+cryptocurrencies like Bitcoin or Ethereum. This means, that the estimation of our variables $p$, $q$ and $m$ is based on a timeframe when the whole market was going up. However,
+shortly after the end of our training data set the cryptocurrency market crashed in 2022, causing a lot of currencies to loose up to 80\% of their market capitalization. This in
+turn caused less people to adopt Helium hotspots since the incentives for doing so went down. This fact is also well illustrated by Figure 6. Here it can be clearly seen that the
+rate of new adoptions drops rapidly as soon as the HNT price collapses (around February 2022). The collapse of the HNT price is an essential piece of information that our model
+does not take into account.
+
+\begin{figure}[!hptb]
+    \centering{}\includegraphics[scale=0.6]{plots/hnt_comparison.png}\\
+    \caption{The Decline in Hotspot Adoptions after HNT Price Collapse.}
+\end{figure}
+
+\noindent To account for additional variables, Frank Bass years later presented an extension of his original model that captures the influence of such external variables with the
+publication of the \emph{Generalized Bass Model} \citep{bass1994bass}. For future research, we therefore propose to use the \emph{Generalized Bass Model} both to gain better
+predictions about the diffusion process and to gain accurate insights into which external variables have an impact on the adoption rate, i.e., on the slope of the adoption curve.
+
+
+%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{0}
+\addcontentsline{toc}{section}{References}
+\bibliographystyle{chicago}
+\bibliography{Biblio.bib} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
  
 \end{document}

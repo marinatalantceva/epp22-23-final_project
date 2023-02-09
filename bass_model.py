@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 import math
+import yfinance as yf
 
 ### Read the the csv document from the previous E file ###
 adoptions_cumulative_raw = pd.read_csv("/Users/octavianciupitu/Desktop/EPP Final/adoptions_cumulative_raw.csv")
@@ -93,11 +94,12 @@ def bass_model(p,q,m,T):
 adoptions = bass_model(p,q,m,len(adoptions_train))
 
 plt.figure().set_figwidth(10)
-plt.plot(adoptions_train.Date, adoptions)
-plt.plot(adoptions_train.Date.iloc[1:], new_adoptions)
+plt.plot(adoptions_train.Date, adoptions, label = "Fitted Bass Model")
+plt.plot(adoptions_train.Date.iloc[1:], new_adoptions, label = "Actual New Hotspot Adotions")
 #plt.title("Bass Model Adoptions vs Actual Adoptions")
 #plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
+plt.legend(loc="lower left", bbox_to_anchor=(0.01,0.77))
 plt.savefig('plots/bass_model_adoptions_vs_actual_adoptions')
 plt.clf()
 
@@ -110,15 +112,16 @@ adoptions_pred_cumul = np.cumsum(adoptions_pred) + adoptions_ts[min_range]
 
 # Plot the whole bass model fit, which is only based on the adoptions_train dataset:
 plt.figure().set_figwidth(10)
-plt.plot(adoptions_cumulative.Date, adoptions_pred_cumul) 
+plt.plot(adoptions_cumulative.Date, adoptions_pred_cumul, label = "Fitted Bass Model") 
 
 # Also plot the adoption_train dataset:
-plt.plot(adoptions_train.Date, adoptions_train.HotspotsWeek)
+plt.plot(adoptions_train.Date, adoptions_train.HotspotsWeek, label = "Actual Cumulative Hotspot Adotions")
 
 #plt.title("Cumulative Bass Model Adoptions vs Actual Cumulative Adoptions")
 #plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
 plt.xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
+plt.legend(loc="lower left", bbox_to_anchor=(0.01,0.77))
 plt.savefig('plots/cumulative_bass_model_adoptions_vs_actual_cumulative_adoptions')
 
 plt.clf()
@@ -126,14 +129,58 @@ plt.clf()
 # Finally, plot the the adoptions_test dataset, which the model has never seen before and compare
 # it to the prediction
 plt.figure().set_figwidth(10)
-plt.plot(adoptions_cumulative.Date, adoptions_pred_cumul) 
-plt.plot(adoptions_train.Date, adoptions_train.HotspotsWeek)
-plt.plot(adoptions_test.Date, adoptions_test.HotspotsWeek)
+plt.plot(adoptions_cumulative.Date, adoptions_pred_cumul, label = "Fitted Bass Model") 
+plt.plot(adoptions_train.Date, adoptions_train.HotspotsWeek, label = "Actual Cumulative Hotspot Adotions (Train)")
+plt.plot(adoptions_test.Date, adoptions_test.HotspotsWeek, label = "Actual Cumulative Hotspot Adotions (Test)")
 
 #plt.title("Predicted Cumulative Weekly Hotspot Adoptions")
 #plt.xlabel("Date")
 plt.ylabel("Number of Adoptions")
 plt.xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
+plt.legend(loc="lower left", bbox_to_anchor=(0.01,0.7))
 plt.savefig('plots/predicted_cumulative_weekly_hotspot_adoptions')
 
+plt.clf()
+
+# Create the final plot that is comparing the Diffusion Graph (Adoption Graph) to the historical
+# price data of HNT (data from yahoo finance)
+
+HNT_ticker = yf.Ticker("HNT-USD")
+HNT_data = HNT_ticker.history(period="3y", interval = '1wk')
+
+HNT_data['Date'] = HNT_data.index
+
+HNT_data_filtered = HNT_data[(HNT_data['Date'] > '2020-08-09') & (HNT_data['Date'] < '2022-12-27')]
+
+x = HNT_data_filtered.Date
+y1 = adoptions_pred_cumul
+y2 = adoptions_cumulative.HotspotsWeek
+y3 = HNT_data_filtered.Close
+
+fig, ax1 = plt.subplots()
+
+ax1.plot(x, y1, 'darkblue', label = "Predicted Adoptions")
+
+ax2 = ax1.twiny()
+ax2.plot(x, y2, 'royalblue', label = "Actual Adoptions")
+
+ax3 = ax1.twinx()
+ax3.plot(x, y3, 'green', label = "HNT Price")
+
+ax1.set_ylabel("Adoptions", color = "blue")
+ax3.set_ylabel("Price", color = "green")
+
+ax1.tick_params(axis='y', colors = "blue")
+ax3.tick_params(axis='y', colors = "green")
+
+ax3.spines['right'].set_color('green')
+ax3.spines['left'].set_color('blue')
+
+ax1.set_xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
+ax2.set_xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
+
+fig.set_figwidth(10)
+fig.legend(loc="lower left", bbox_to_anchor=(0.13,0.65))
+
+plt.savefig('plots/hnt_comparison')
 plt.clf()
