@@ -35,6 +35,8 @@ dependencies:
   - pandas
   - statsmodels
   - scikit-learn
+  - numpy
+  - scipy
   - python-graphviz
   - python-kaleido
   - r-plyr

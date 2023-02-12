@@ -16,20 +16,16 @@ creating_time_series_data = function(panel_data){
     ts_data <- panel_data %>% group_by(CalendarWeek) %>% 
     summarise(HotspotsWeek=sum(Hotspots.Cumul), .groups = 'drop')
 
-    #Creating Lag variable
-    ts_data_lag <- ts_data %>% 
-    mutate(LagHSW_1 = lag(HotspotsWeek, n=1, default = NA),
-         LagHSW_2 = lag(HotspotsWeek, n=2, default = NA),
-         LagHSW_3 = lag(HotspotsWeek, n=3, default = NA),
-         LagHSW_4 = lag(HotspotsWeek, n=4, default = NA),
-         LagHSW_8 = lag(HotspotsWeek, n=8, default = NA), #Lag for two months
-         LagHSW_13 = lag(HotspotsWeek, n=13, default = NA), #Lag for a quarter
-         LagHSW_26 = lag(HotspotsWeek, n=26, default = NA), #Lag for a half a year
-         LagHSW_39 = lag(HotspotsWeek, n=39, default = NA), #Lag for three quarters of the year
-         LagHSW_52 = lag(HotspotsWeek, n=52, default = NA) #Lag for a year
-         )
-
-    return(ts_data_lag)
+    # Adding missing rows (they are missing because during those weeks nobody adopted):
+    adoptions_cumulative_raw <- ts_data %>% complete(CalendarWeek = 30:max(CalendarWeek), fill = list(HotspotsWeek = 0))
+    
+    for(i in 2:nrow(adoptions_cumulative_raw)){
+        if(adoptions_cumulative_raw$HotspotsWeek[i] == 0){
+            adoptions_cumulative_raw$HotspotsWeek[i] = adoptions_cumulative_raw$HotspotsWeek[i-1]
+            }
+        }
+        
+    return(adoptions_cumulative_raw)
 }
 
 # ======================================================================================
@@ -51,8 +47,9 @@ depends_on <- config[["depends_on"]]
 panel_data <- read.csv(depends_on[["panel_data"]]) 
 
 #Creating a time series dataset
-ts_data = creating_time_series_data(panel_data)
+adoptions_cumulative_raw = creating_time_series_data(panel_data)
+adoptions_cumulative_raw <- apply(adoptions_cumulative_raw, 2, as.character)
 
 #Saving the data
-write.csv(ts_data, file = produces[["ts_data"]], row.names = FALSE)
+write.csv(adoptions_cumulative_raw, file = produces[["adoptions_cumulative_raw"]], row.names = FALSE)
 

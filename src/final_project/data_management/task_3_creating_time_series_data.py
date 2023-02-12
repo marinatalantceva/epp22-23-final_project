@@ -13,7 +13,7 @@ from final_project.config import SRC
     )
 @pytask.mark.produces(
     {
-        "ts_data": BLD / "data" / "time_series_data.csv",
+        "adoptions_cumulative_raw": BLD / "data" / "adoptions_cumulative_raw.csv",
     }
     )
 @pytask.mark.r(
