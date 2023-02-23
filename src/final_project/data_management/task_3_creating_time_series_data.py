@@ -8,7 +8,7 @@ from final_project.config import SRC
 
 @pytask.mark.depends_on(
     {
-        "panel_data": BLD / "data" / "panel_data_with_neighbours_without_lag.csv",
+        "data_without_neighbours": BLD / "data" / "data_without_neighbours.csv",
     }
     )
 @pytask.mark.produces(

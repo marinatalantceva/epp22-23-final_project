@@ -20,6 +20,7 @@ from final_project.config import BLD
 def task_7_creating_chart_cumulative_adoptions(depends_on, produces):
     data_train = pd.read_csv(depends_on["data_train"])
 
+    plt.clf()
     plt.rcParams['font.size'] = 6
     
     # Plot the chart with the amount of cumulative adoptions every week

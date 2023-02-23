@@ -1,3 +1,3 @@
-from final_project.data_management.test_url.r import url_with_coordinates
+from final_project.data_management.function_4_bass_model  import bass_model
 
-__all__ = [url_with_coordinates]
+__all__ = [bass_model]

@@ -44,7 +44,7 @@ depends_on <- config[["depends_on"]]
 # ======================================================================================
 
 #Downloading input data
-panel_data <- read.csv(depends_on[["panel_data"]]) 
+panel_data <- read.csv(depends_on[["data_without_neighbours"]]) 
 
 #Creating a time series dataset
 adoptions_cumulative_raw = creating_time_series_data(panel_data)
