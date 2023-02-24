@@ -1,6 +1,6 @@
 #Creating a panel dataset to use for predictions in later work
 
-#This code takes about 3 minutes to run, since some dataframes are quite large.
+#This code takes about 3 minutes to run, since some dataframes are quite large (if you unmute the code for the dataframes with neighbours).
 
 # ======================================================================================
 # Functions

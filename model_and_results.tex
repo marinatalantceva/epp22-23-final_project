@@ -63,10 +63,10 @@ Accoding to Bass, these are the two main kinds of forces determining the diffusi
     $m$ does not determine the shape of the adoption curve. 
 \end{enumerate}
 
-\begin{figure}[hptb]
-    \centering{}\includegraphics[scale=0.45]{plots/bass_model_example.png}\\
-    \caption{Based on Number Analytics (2021).}
-\end{figure}
+%\begin{figure}[hptb]
+%    \centering{}\includegraphics[scale=0.5]{plots_preliminary/bass_model_example.png}\\
+%    \caption{Based on Number Analytics (2021).}
+%\end{figure}
 
 \noindent At the beginning of a product diffusion process, the \emph{coefficient of innovation} is particularly important, as it represents the set of
 people who are the first to adopt the new product regardless of the actions of others - in other words, they are \emph{innovators}. Later in the diffusion
@@ -142,11 +142,11 @@ one (weekly cumulative adoptions).
 
 \begin{figure}[!hptb]
     \begin{subfigure}[h]{0.52\linewidth}
-    \includegraphics[width=\linewidth]{plots/weekly_hotspot_adoptions.png}
+    \includegraphics[width=\linewidth]{bld/plots/weekly_adoptions.png}
     \end{subfigure}
     \hfill
     \begin{subfigure}[h]{0.52\linewidth}
-    \includegraphics[width=\linewidth]{plots/weekly_hotspot_adoptions_cumulative.png}
+    \includegraphics[width=\linewidth]{bld/plots/cumulative_adoptions.png}
     \end{subfigure}%
     \caption{Number of weekly new adoptions (left) and weekly cumulative hotspot adoptions (right).}
     \end{figure}
@@ -159,9 +159,8 @@ the end of 2022, more precisely until December 26, 2022.
 
 In this study, we generate several dataframes even though for the analysis we use only one of them. 
 This is done only for the sake of implementation of our knowledge of how to work with a raw data and create new external variables.
-Therefore, do not be confused about extra datasets in the data folder of the project, they are not related to the current analysis. 
 However, they could be implemented in the future research of this topic, for example, for the Generalized Bass Model, since they
-have extra explanatory variables, such as amount of hotspots in neighborhood, some spatial charachteristics, and different time variables.
+have extra explanatory variables, such as amount of hotspots in neighbourhood, some spatial characteristics, and different time variables. To find out more about these dataframes, run the commented code in the function_2_create_panel_data.r
 
 \bigskip
 
@@ -169,7 +168,7 @@ have extra explanatory variables, such as amount of hotspots in neighborhood, so
 plot our fitted curve against actual weekly (new) hotspot adoptions as in Figure 3, we can see that the fitted curve describes reality well.
 
 \begin{figure}[!hptb]
-    \centering{}\includegraphics[scale=0.6]{plots/bass_model_adoptions_vs_actual_adoptions.png}\\
+    \centering{}\includegraphics[scale=0.5]{bld/plots/bass_vs_actual.pdf}\\
     \caption{Fitted Bass Model (blue) vs. Actual Hotspots Adoptions from the Training Dataset (orange).}
 \end{figure}
 
@@ -183,7 +182,7 @@ just as our estimated parameter $m$ suggested.
 \bigskip
 
 \begin{figure}[!hptb]
-    \centering{}\includegraphics[scale=0.6]{plots/cumulative_bass_model_adoptions_vs_actual_cumulative_adoptions.png}\\
+    \centering{}\includegraphics[scale=0.6]{bld/plots/whole_bass_fit_train.png}\\
     \caption{Bass Model Estimation until the End of 2022 (blue) vs. Actual Adoption until November 2021 (orange).}
 \end{figure}
 
@@ -191,7 +190,7 @@ just as our estimated parameter $m$ suggested.
 prediction is clearly too optimisitc and that the actual market saturation is reached at around $6000$ hotspots.
 
 \begin{figure}[!hptb]
-    \centering{}\includegraphics[scale=0.6]{plots/predicted_cumulative_weekly_hotspot_adoptions.png}\\
+    \centering{}\includegraphics[scale=0.6]{bld/plots/whole_bass_fit.png}\\
     \caption{Bass Model Estimation until the End of 2022 (blue) vs. Actual Adoption until the End of 2022 (orange + green).}
 \end{figure}
 
@@ -222,7 +221,7 @@ rate of new adoptions drops rapidly as soon as the HNT price collapses (around F
 does not take into account.
 
 \begin{figure}[!hptb]
-    \centering{}\includegraphics[scale=0.6]{plots/hnt_comparison.png}\\
+    \centering{}\includegraphics[scale=0.6]{bld/plots/HNT_comparison_plot.png}\\
     \caption{The Decline in Hotspot Adoptions after HNT Price Collapse.}
 \end{figure}
 

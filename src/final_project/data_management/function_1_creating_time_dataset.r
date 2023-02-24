@@ -58,15 +58,7 @@ add_time_variables <- function(api_data_format) {
   return(api_data_with_time)
 }
 
-# Save all given Hexagons and Calendar Weeks
-# data_sorting = function(api_data_with_time){
-
-#    return(api_data_with_time)
-# }
-
 unique_hexagons <- function(api_data_with_time) {
-  # all.hex <-  select(api_data_with_time, location_hex)
-  # all.hex = unique(all.hex)
   all.hex <- unique(api_data_with_time$location_hex)
   return(all.hex)
 }
@@ -110,6 +102,7 @@ depends_on <- config[["depends_on"]]
 
 api_data <- read.csv(depends_on[["api_data"]]) # import the data set from the "hotspot_crawler.R" dataset
 
+#Run the functions defined above
 api_data_format <- data_format(api_data)
 api_data_with_time <- add_time_variables(api_data_format)
 api_data_with_time <- as.data.frame(api_data_with_time)

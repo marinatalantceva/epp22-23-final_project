@@ -13,7 +13,7 @@ The following steps must be followed chronologically to understand the purpose a
 
 1. Read the following chapter **Project Purpose** to get an intuition what the *Helium Network* is about. We briefly describe what a *Helium* hotspot is and what makes people adopt it. We additionally explain where we get our data from.
 2. Run pytask (as explained below).
-3. Read the resulting pdf-document. It will provide a description of the prediction model we used in our analysis, as well as a clear data exploration. Additionally, we are using this pdf-document to present and discuss our results (using graphs). Finally, we talk about limitations of our work and give suggestions for future research. 
+3. Read the pdf-document, resulting from LaTeX file. It will provide a description of the prediction model we used in our analysis, as well as a clear data exploration. Additionally, we are using this pdf-document to present and discuss our results (using graphs). Finally, we talk about limitations of our work and give suggestions for future research. 
 
 
 ### Pytask Information

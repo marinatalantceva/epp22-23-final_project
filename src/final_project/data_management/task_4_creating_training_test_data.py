@@ -22,10 +22,11 @@ from final_project.config import SRC
 
 
 def task_4_creating_training_test_data(depends_on, produces):
-    ## Read the the csv document from the previous E file ###
     adoptions_cumulative_raw = pd.read_csv(depends_on["data"])
+
     # Date column needs to be attached:
     adoptions_cumulative_raw['Date'] = pd.date_range(start = '22/07/2019', end = '26/12/2022', freq = 'W-MON')
+    
     # We define the time frame that we want to analyze
     # We decide to cut off the first 55 entries auf the data, because during this time the Helium Network
     # was still young, and therefore the adoption process had not yet started rolling at that point.

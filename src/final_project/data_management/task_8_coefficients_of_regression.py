@@ -28,7 +28,7 @@ def task_8_coefficients_of_regression(depends_on, produces):
     data_train_fd = pd.read_csv(depends_on["data_train_fd"])
     
     # Preparing the variables that are needed to run the Linear Regression, which is subsequently needed
-    # # to calculate the coeffictien of innovation (p), coefficient of imitation (q) and the market size (m)
+    # to calculate the coeffictien of innovation (p), coefficient of imitation (q) and the market size (m)
     adoptions_ts = data_train.HotspotsWeek[0:len(data_train)-1]
     adoptions_ts = np.asarray(adoptions_ts)
     adoptions_ts = pd.DataFrame(adoptions_ts)
@@ -36,7 +36,7 @@ def task_8_coefficients_of_regression(depends_on, produces):
     
     Y = adoptions_ts-lower_bound # Series that contains the amount of the total amount of past
                                         # adoptions. We substract the first entry of the series from
-                                        # all entries to achieve a better model fit
+                                        # all entries to achieve a better model fit.
                                   
     Ysq = Y[0]**2 # The quadratic term of the Bass model
     

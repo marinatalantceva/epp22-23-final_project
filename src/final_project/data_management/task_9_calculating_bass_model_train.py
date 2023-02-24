@@ -46,5 +46,3 @@ def task_9_calculating_bass_model_train(depends_on, produces):
     estimated_adoptions_train = bass_model(p,q,m,len(data_train))
 
     savetxt(produces['estimated_adoptions_train'], estimated_adoptions_train)
-    #estimated_adoptions_train = pd.DataFrame(estimated_adoptions_train)
-    #estimated_adoptions_train.to_csv(produces['estimated_adoptions_train'], index=False, header=None)

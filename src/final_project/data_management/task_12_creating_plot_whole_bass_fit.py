@@ -16,8 +16,8 @@ from final_project.config import BLD
     )
 @pytask.mark.produces(
     {
-        "whole_bass_fit_train": BLD / "plots" / "whole_bass_fit_train.pdf",
-        "whole_bass_fit": BLD / "plots" / "whole_bass_fit.pdf",
+        "whole_bass_fit_train": BLD / "plots" / "whole_bass_fit_train.png",
+        "whole_bass_fit": BLD / "plots" / "whole_bass_fit.png",
     }
     )
 
@@ -34,14 +34,15 @@ def task_12_creating_plot_whole_bass_fit(depends_on, produces):
     plt.figure().set_figwidth(10)
     plt.plot(adoptions_cumulative.Date, estimated_adoptions_whole_data, label = "Fitted Bass Model")
     
-    # Also plot the adoption_train dataset:
+    # Also plot the actual values of adoption_train dataset:
     plt.plot(data_train.Date, data_train.HotspotsWeek, label = "Actual Cumulative Hotspot Adoptions (Train)")
     
     plt.title("Cumulative Bass Model Adoptions vs Actual Cumulative Adoptions")
-    plt.xlabel("Date")
-    plt.xticks(rotation=90)
+    plt.xticks([])
+    #plt.xlabel("Date")
+    #plt.xticks(rotation=90)
     plt.ylabel("Number of Adoptions")
-    plt.xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
+    #plt.xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])
     plt.legend(loc="lower left", bbox_to_anchor=(0.01,0.77))
     plt.savefig(produces['whole_bass_fit_train'])
 

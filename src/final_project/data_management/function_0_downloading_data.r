@@ -72,10 +72,14 @@ swlon <- -74.048 # South West longitude
 nelat <- 40.812 # North East latitude
 nelon <- -73.88 # North East longitude
 url <- "https://api.helium.io/v1/hotspots/location/box/?"
+
+#Running all the commands
 base_url <- url_with_coordinates(url, swlat, swlon, nelat, nelon)
 api_call <- calling_api(base_url)
 api_char <- character_api(api_call)
 api_JSON <- JSON_api(api_char)
 api_data <- download_from_url(base_url, api_call, api_char, api_JSON)
 api_data <- apply(api_data, 2, as.character)
+
+#Saving the data
 write.csv(api_data, file = produces, row.names = FALSE)

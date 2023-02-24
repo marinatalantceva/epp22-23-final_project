@@ -33,9 +33,7 @@ def task_11_calculating_bass_model_whole_data(depends_on, produces):
     b = pd.read_csv(depends_on["b"], header = None)
     c = pd.read_csv(depends_on["c"], header = None)
     adoptions_cumulative = pd.read_csv(depends_on["adoptions_cumulative"], header = None)
-    #data_train = pd.read_csv(depends_on["data_train"], header = None)
     data_train_header = pd.read_csv(depends_on["data_train"])
-    min_range = 55
 
     adoptions_ts = data_train_header.HotspotsWeek[0:len(data_train_header)-1]
     adoptions_ts = np.asarray(adoptions_ts)
