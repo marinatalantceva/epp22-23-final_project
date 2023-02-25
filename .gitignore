@@ -23,6 +23,6 @@ bld/
 *.out
 *.pdf
 *.run.xml
-.synctex.gz
+*.synctex.gz
 
 *.DS_Store
