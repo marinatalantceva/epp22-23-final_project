@@ -15,7 +15,6 @@ from final_project.config import SRC
         "all_CW": SRC / "data" / "all_CW.csv",
         "all_CWY": SRC / "data" / "all_CWY.csv",
         "all_YEAR": SRC / "data" / "all_YEAR.csv",
-        "all_day": SRC / "data" / "all_day.csv",
     }
 )
 @pytask.mark.r(
