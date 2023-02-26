@@ -11,19 +11,11 @@ from final_project.config import BLD
 )
 @pytask.mark.produces(
     {
-<<<<<<< HEAD
         "time_data": BLD / "data_inputs" / "data_with_time.csv",
         "all_hex": BLD / "data_inputs" / "all_hex.csv",
         "all_CW": BLD / "data_inputs"/ "all_CW.csv",
         "all_CWY": BLD / "data_inputs" / "all_CWY.csv",
         "all_YEAR": BLD / "data_inputs" / "all_YEAR.csv",
-=======
-        "time_data": SRC / "data" / "data_with_time.csv",
-        "all_hex": SRC / "data" / "all_hex.csv",
-        "all_CW": SRC / "data" / "all_CW.csv",
-        "all_CWY": SRC / "data" / "all_CWY.csv",
-        "all_YEAR": SRC / "data" / "all_YEAR.csv",
->>>>>>> eeeb50596a9127be592ad22489ff05309ebd461b
     }
 )
 @pytask.mark.r(
