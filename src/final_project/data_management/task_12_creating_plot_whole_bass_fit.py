@@ -8,10 +8,10 @@ from final_project.config import BLD
 
 @pytask.mark.depends_on(
     {
-        "data_train": BLD / "data" / "data_train.csv",
-        "estimated_adoptions_whole_data": BLD / "data" / "estimated_adoptions_whole_data.csv",
-        "adoptions_cumulative": BLD / "data" / "adoptions_cumulative.csv",
-        "data_test": BLD / "data" / "data_test.csv",
+        "data_train": BLD / "data_for_analysis" / "data_train.csv",
+        "estimated_adoptions_whole_data": BLD / "model_results" / "estimated_adoptions_whole_data.csv",
+        "adoptions_cumulative": BLD / "data_for_analysis" / "adoptions_cumulative.csv",
+        "data_test": BLD / "data_for_analysis" / "data_test.csv",
     }
     )
 @pytask.mark.produces(
@@ -28,7 +28,7 @@ def task_12_creating_plot_whole_bass_fit(depends_on, produces):
     estimated_adoptions_whole_data = pd.read_csv(depends_on["estimated_adoptions_whole_data"])
 
     plt.clf()
-    plt.rcParams['font.size'] = 5
+    plt.rcParams['font.size'] = 10
 
     # Plot the whole bass model fit, which is only based on the adoptions_train dataset:
     plt.figure().set_figwidth(10)
@@ -39,7 +39,7 @@ def task_12_creating_plot_whole_bass_fit(depends_on, produces):
     
     plt.title("Cumulative Bass Model Adoptions vs Actual Cumulative Adoptions")
     plt.xticks([])
-    #plt.xlabel("Date")
+    plt.xlabel("Date")
     #plt.xticks(rotation=90)
     plt.ylabel("Number of Adoptions")
     #plt.xticks(["2020-10", "2021-04", "2021-10", "2022-04", "2022-10"])

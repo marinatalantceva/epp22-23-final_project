@@ -8,9 +8,9 @@ from final_project.config import BLD
 
 @pytask.mark.depends_on(
     {
-        "data_train_fd": BLD / "data" / "data_train_fd.csv",
-        "data_train": BLD / "data" / "data_train.csv",
-        "estimated_adoptions_train": BLD / "data" / "estimated_adoptions_train.csv",
+        "data_train_fd": BLD / "data_for_analysis" / "data_train_fd.csv",
+        "data_train": BLD / "data_for_analysis" / "data_train.csv",
+        "estimated_adoptions_train": BLD / "model_results" / "estimated_adoptions_train.csv",
     }
     )
 @pytask.mark.produces(
@@ -26,14 +26,14 @@ def task_10_creating_plot_bass_vs_actual(depends_on, produces):
 
     # Plot 'Bass Model Adoptions vs Actual Adoptions'
     plt.clf()
-    plt.rcParams['font.size'] = 5
+    plt.rcParams['font.size'] = 10
 
     plt.figure().set_figwidth(10)
     plt.plot(data_train.Date, estimated_adoptions_train, label = "Fitted Bass Model")
     plt.plot(data_train.Date.iloc[1:], data_train_fd, label = "Actual New Hotspot Adotions")
     plt.title("Bass Model Adoptions vs Actual Adoptions")
     plt.xticks([])
-    #plt.xlabel("Date")
+    plt.xlabel("Date")
     #plt.xticks(rotation=90)
     plt.ylabel("Number of Adoptions")
     plt.legend(loc="lower left", bbox_to_anchor=(0.01,0.77))

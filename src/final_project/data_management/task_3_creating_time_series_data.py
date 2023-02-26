@@ -8,12 +8,12 @@ from final_project.config import SRC
 
 @pytask.mark.depends_on(
     {
-        "data_without_neighbours": BLD / "data" / "data_without_neighbours.csv",
+        "data_without_neighbours": BLD / "data_for_analysis" / "data_without_neighbours.csv",
     }
     )
 @pytask.mark.produces(
     {
-        "adoptions_cumulative_raw": BLD / "data" / "adoptions_cumulative_raw.csv",
+        "adoptions_cumulative_raw": BLD / "data_for_analysis" / "adoptions_cumulative_raw.csv",
     }
     )
 @pytask.mark.r(

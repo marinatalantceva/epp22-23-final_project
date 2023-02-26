@@ -1,21 +1,21 @@
 """Creating a time dataset."""
 import pytask
 from final_project.config import SRC
+from final_project.config import BLD
 
 
 @pytask.mark.depends_on(
     {
-        "api_data": SRC / "data" / "api_data.csv",
+        "api_data": BLD / "data_inputs" / "api_data.csv",
     }
 )
 @pytask.mark.produces(
     {
-        "time_data": SRC / "data" / "data_with_time.csv",
-        "all_hex": SRC / "data" / "all_hex.csv",
-        "all_CW": SRC / "data" / "all_CW.csv",
-        "all_CWY": SRC / "data" / "all_CWY.csv",
-        "all_YEAR": SRC / "data" / "all_YEAR.csv",
-        "all_day": SRC / "data" / "all_day.csv",
+        "time_data": BLD / "data_inputs" / "data_with_time.csv",
+        "all_hex": BLD / "data_inputs" / "all_hex.csv",
+        "all_CW": BLD / "data_inputs"/ "all_CW.csv",
+        "all_CWY": BLD / "data_inputs" / "all_CWY.csv",
+        "all_YEAR": BLD / "data_inputs" / "all_YEAR.csv",
     }
 )
 @pytask.mark.r(

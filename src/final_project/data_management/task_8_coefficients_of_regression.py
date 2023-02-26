@@ -11,15 +11,15 @@ from final_project.config import BLD
 
 @pytask.mark.depends_on(
     {
-        "data_train": BLD / "data" / "data_train.csv",
-        "data_train_fd": BLD / "data" / "data_train_fd.csv",
+        "data_train": BLD / "data_for_analysis" / "data_train.csv",
+        "data_train_fd": BLD / "data_for_analysis" / "data_train_fd.csv",
     }
     )
 @pytask.mark.produces(
     {
-        "a": BLD / "data" / "a.csv",
-        "b": BLD / "data" / "b.csv",
-        "c": BLD / "data" / "c.csv",
+        "a": BLD / "data_for_analysis" / "bass_model_parameters" / "a.csv",
+        "b": BLD / "data_for_analysis" / "bass_model_parameters"  / "b.csv",
+        "c": BLD / "data_for_analysis" / "bass_model_parameters"  / "c.csv",
     }
     )
 

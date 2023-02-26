@@ -11,7 +11,7 @@ from final_project.config import BLD
 
 @pytask.mark.produces(
     {
-        "HNT_data": BLD / "data" / "HNT_data.csv",
+        "HNT_data": BLD / "data_for_analysis" / "HNT_data.csv",
     }
     )
 

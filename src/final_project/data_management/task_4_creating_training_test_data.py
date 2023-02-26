@@ -9,14 +9,14 @@ from final_project.config import SRC
 
 @pytask.mark.depends_on(
     {
-        "data": BLD / "data" / "adoptions_cumulative_raw.csv",
+        "data": BLD / "data_for_analysis" / "adoptions_cumulative_raw.csv",
     }
     )
 @pytask.mark.produces(
     {
-        "data_train": BLD / "data" / "data_train.csv",
-        "data_test": BLD / "data" / "data_test.csv",
-        "adoptions_cumulative": BLD / "data" / "adoptions_cumulative.csv",
+        "data_train": BLD / "data_for_analysis" / "data_train.csv",
+        "data_test": BLD / "data_for_analysis" / "data_test.csv",
+        "adoptions_cumulative": BLD / "data_for_analysis" / "adoptions_cumulative.csv",
     }
     )
 

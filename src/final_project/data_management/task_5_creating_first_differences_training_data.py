@@ -7,12 +7,12 @@ from final_project.config import BLD
 
 @pytask.mark.depends_on(
     {
-        "data": BLD / "data" / "data_train.csv",
+        "data": BLD / "data_for_analysis" / "data_train.csv",
     }
     )
 @pytask.mark.produces(
     {
-        "data_train_fd": BLD / "data" / "data_train_fd.csv",
+        "data_train_fd": BLD / "data_for_analysis" / "data_train_fd.csv",
     }
     )
 

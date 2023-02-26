@@ -10,9 +10,9 @@ from final_project.config import BLD
 
 @pytask.mark.depends_on(
     {
-        "HNT_data": BLD / "data" / "HNT_data.csv",
-        "adoptions_cumulative": BLD / "data" / "adoptions_cumulative.csv",
-        "estimated_adoptions_whole_data": BLD / "data" / "estimated_adoptions_whole_data.csv",
+        "HNT_data": BLD / "data_for_analysis" / "HNT_data.csv",
+        "adoptions_cumulative": BLD / "data_for_analysis" / "adoptions_cumulative.csv",
+        "estimated_adoptions_whole_data": BLD / "model_results" / "estimated_adoptions_whole_data.csv",
     }
     )
 @pytask.mark.produces(

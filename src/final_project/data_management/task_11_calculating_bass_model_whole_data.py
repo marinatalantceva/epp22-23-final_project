@@ -14,16 +14,16 @@ from final_project.data_management.function_4_bass_model import (
 
 @pytask.mark.depends_on(
     {
-        "a": BLD / "data" / "a.csv",
-        "b": BLD / "data" / "b.csv",
-        "c": BLD / "data" / "c.csv",
-        "adoptions_cumulative": BLD / "data" / "adoptions_cumulative.csv",
-        "data_train": BLD / "data" / "data_train.csv",
+        "a": BLD / "data_for_analysis" / "bass_model_parameters"  / "a.csv",
+        "b": BLD / "data_for_analysis" / "bass_model_parameters"  / "b.csv",
+        "c": BLD / "data_for_analysis" / "bass_model_parameters"  / "c.csv",
+        "adoptions_cumulative": BLD / "data_for_analysis" / "adoptions_cumulative.csv",
+        "data_train": BLD / "data_for_analysis" / "data_train.csv",
     }
     )
 @pytask.mark.produces(
     {
-        "estimated_adoptions_whole_data": BLD / "data" / "estimated_adoptions_whole_data.csv",
+        "estimated_adoptions_whole_data": BLD / "model_results" / "estimated_adoptions_whole_data.csv",
     }
     )
 
