@@ -12,13 +12,21 @@ Predicting the Adoption Curve of a New Technology - Using Helium Hotpots as a Ca
 The following steps must be followed chronologically to understand the purpose as well as the results of this project:
 
 1. Read the following chapter **Project Purpose** to get an intuition what the *Helium Network* is about. We briefly describe what a *Helium* hotspot is and what makes people adopt it. We additionally explain where we get our data from.
-2. Run pytask (as explained below).
-3. Read the pdf-document, resulting from LaTeX file. It will provide a description of the prediction model we used in our analysis, as well as a clear data exploration. Additionally, we are using this pdf-document to present and discuss our results (using graphs). Finally, we talk about limitations of our work and give suggestions for future research. 
+2. Create and activate the environment by typing:
+```console
+$ conda env create -f environment.yml
+$ conda activate final_project
+```
+3. Build the project by running pytask:
+```console
+$ pytask
+```
+4. Open *model_and_results.tex* and run it. Read the pdf-document, resulting from LaTeX file. It will provide a description of the prediction model we used in our analysis, as well as a clear data exploration. Additionally, we are using this pdf-document to present and discuss our results (using graphs). Finally, we talk about limitations of our work and give suggestions for future research. 
 
 
 ### Pytask Information
 
-To get started, create and activate the environment with
+Generally, to get started with a pytask project, create and activate the environment with
 
 ```console
 $ conda/mamba env create
