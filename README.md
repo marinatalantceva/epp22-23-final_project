@@ -24,9 +24,9 @@ $ pytask
 4. Open *model_and_results.tex* and run it. Read the pdf-document, resulting from LaTeX file. It will provide a description of the prediction model we used in our analysis, as well as a clear data exploration. Additionally, we are using this pdf-document to present and discuss our results (using graphs). Finally, we talk about limitations of our work and give suggestions for future research. 
 
 
-### Pytask Information
+### General pytask Information
 
-Generally, to get started with a pytask project, create and activate the environment with
+The method described above is the usual approach to get started with a pytask project. Generally, you need to create and activate the environment with
 
 ```console
 $ conda/mamba env create
